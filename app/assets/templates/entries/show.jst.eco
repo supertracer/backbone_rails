@@ -1,0 +1,4 @@
+<%= @contact.name %> - <%= @contact.mobile_number %>
+<br>
+<br>
+<button id="back_to_home">Back</button>

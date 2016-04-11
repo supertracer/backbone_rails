@@ -4,8 +4,14 @@ window.Raffler =
   Views: {}
   Routers: {}
   initialize: ->
-  	router = new Raffler.Routers.Entries()
-  	Backbone.history.start()
+  	@collection = new Raffler.Collections.Entries()
+  	_this = @
+  	@collection.fetch({
+  		success: ->
+  			_this.router = new Raffler.Routers.Entries()
+		  	Backbone.history.start()
+		})
+  	
 
 $(document).ready ->
   Raffler.initialize()

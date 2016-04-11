@@ -13,7 +13,7 @@ class Raffler.Views.Entry extends Backbone.View
 
 	editEntry: (event) ->
 		$(@el).find("#label-name").html("<input id='model-name' type='text' value='" + @model.get('name') + "'>")
-		$(@el).find("#label-mobile").html("<input id='model-mobile' type='text' value='" + @model.get('mobile_number') + "'>")
+		$(@el).find("#label-mobile").html("<input id='model-mobile' type='text' maxLength='10' value='" + @model.get('mobile_number') + "'>")
 		$(@el).find("#edit_name").attr("id", "update").html("Update")
 		# edit = new Raffler.Views.EntriesEdit({model: @model})
 		# $("#container").append(edit.render().el)
@@ -22,10 +22,9 @@ class Raffler.Views.Entry extends Backbone.View
 	updateEntry: (e) ->
 		name = $(@el).find("#model-name").val()
 		mobile = $(@el).find("#model-mobile").val()
-		console.log mobile
+		# console.log mobile
 		@model.set({ name: name, mobile_number: mobile })
-		console.log @model.toJSON()
-
+		# console.log @model.toJSON()
 		@model.save()
-		console.log @model.toJSON()
+		# console.log @model.toJSON()
 		@render()

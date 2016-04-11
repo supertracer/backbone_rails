@@ -5,6 +5,7 @@ class Raffler.Views.EntriesIndex extends Backbone.View
   events:
     'submit #new_entry': 'createEntry'
     'click #delete_name': 'deleteEntry'
+    'click .show_model': 'show'
 
 
   initialize: ->
@@ -33,3 +34,7 @@ class Raffler.Views.EntriesIndex extends Backbone.View
   createEntry: (event) ->
     event.preventDefault()
     @collection.create name: $('#new_entry_name').val(), mobile_number: $('#new_entry_mobile').val()
+
+  show: (e) ->
+    model_id = $(e.currentTarget).attr('data-model-id')
+    Raffler.router.navigate('entries/' + model_id, {trigger: true})

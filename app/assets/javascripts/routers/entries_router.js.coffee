@@ -2,25 +2,26 @@ class Raffler.Routers.Entries extends Backbone.Router
 
   routes:
     '':'index'
-    'entries/:id':'edit'
-    'dashboard': 'dashboard'
+    'entries/:id':'show'
+
+  # events:
+  #   'click #show_model': 'show'
 
   initialize: ->
-    @collection = new Raffler.Collections.Entries()
-    _this = @
-    @collection.fetch({
-      success: ->
-        models = _this.collection.models
-        _this.collection.reset(models)
-    })
+
 
   index: ->
-    console.log "now at index"
-    view = new Raffler.Views.EntriesIndex(collection: @collection)
+    view = new Raffler.Views.EntriesIndex(collection: Raffler.collection)
     $("#container").html(view.render().el)
 
-  edit: ->
-    edit = new Raffler.Views.EntriesEdit(collection: @collection)
+  show: (id) ->
+    console.log "id is", id
+    model = Raffler.collection.get(id)
+    console.log "model is ", model.toJSON()
+    show = new Raffler.Views.EntriesShow({
+      model: model
+    })
+    $("#container").html(show.render().el)
 
-  dashboard: ->
-    $("#container").html("<h1> Welcome to Dashboard </h1>");
+  # edit: ->
+  #   edit = new Raffler.Views.EntriesEdit(collection: @collection)
