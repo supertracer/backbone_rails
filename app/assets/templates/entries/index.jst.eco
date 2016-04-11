@@ -1,0 +1,32 @@
+<h1>Contact Book</h1>
+
+<form id="new_entry">
+  <input type="text" name="name" id="new_entry_name" placeholder="Name">
+  <input type="text" name="mobile_number" id="new_entry_mobile" maxlength="10"  placeholder="Mobile">
+  <input type="submit" value="Add">
+</form>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Mobile</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody id="entries">
+
+  </tbody>
+</table>
+
+<style type="text/css">
+
+  #entries tr td {
+    padding: 0 10px;
+  }
+
+  #new_entry {
+    margin-bottom: 20px;
+  }
+
+</style>

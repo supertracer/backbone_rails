@@ -1,0 +1,3 @@
+<td id="label-name"><%= @entry.name %></td>
+<td id="label-mobile"><%= @entry.mobile_number %></td>
+<td><button id="edit_name" data-model-id="<%= @entry.id %>">Edit</button>&nbsp;<button id="delete_name" data-model-id="<%= @entry.id %>">Delete</button></td>
